@@ -34,9 +34,6 @@ class Plugin extends \Phile\Plugin\AbstractPlugin implements \Phile\Gateway\Even
 				$json_obj = array();
 				
 				foreach( $pages as $page ){
-					
-					//get meta info for page
-					$page_meta = $page->getMeta();
 				
 					// create empty page object
 					$the_page = new \stdClass();
@@ -47,8 +44,10 @@ class Plugin extends \Phile\Plugin\AbstractPlugin implements \Phile\Gateway\Even
 					$the_page->page_title = $page->getTitle();
 					$the_page->page_content = $page->getContent();
 					
-					$the_page->page_seo_title = $page_meta->get('seotitle');
-					$the_page->page_description = $page_meta->get('description');
+					//get meta info for page example
+					// $page_meta = $page->getMeta();
+					// $the_page->page_seo_title = $page_meta->get('seotitle');
+					// $the_page->page_description = $page_meta->get('description');
 					
 					// push the page to the json object
 					$json_obj[] = $the_page;
